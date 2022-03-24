@@ -3,6 +3,13 @@ package uo
 import "fmt"
 
 func (uo *UnstructuredObject) GetNestedField(keys ...interface{}) (interface{}, bool, error) {
+	if len(keys) == 1 {
+		if p, ok := keys[0].(*MyJsonPath); ok {
+			f, ok := p.GetFirst(uo.Object)
+			return f, ok, nil
+		}
+	}
+
 	var o interface{} = uo.Object
 	for _, k := range keys {
 		v, found, err := GetChild(o, k)

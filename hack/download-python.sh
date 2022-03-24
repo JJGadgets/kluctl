@@ -12,6 +12,7 @@ else
       Linux*)     os=linux;;
       Darwin*)    os=darwin;;
       MINGW*)     os=windows;;
+      MSYS*)      os=windows;;
       *)          echo "unknown os"; exit 1;
   esac
 fi

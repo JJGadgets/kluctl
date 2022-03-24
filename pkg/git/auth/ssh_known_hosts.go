@@ -9,9 +9,16 @@ import (
 	"os"
 	"path/filepath"
 	"strconv"
+	"sync"
 )
 
+var askHostMutex sync.Mutex
+
 func verifyHost(host string, remote net.Addr, key ssh.PublicKey) error {
+	// Ensure only one prompt happens at a time
+	askHostMutex.Lock()
+	defer askHostMutex.Unlock()
+
 	hostKeyChecking := true
 	if x, ok := os.LookupEnv("KLUCTL_SSH_DISABLE_STRICT_HOST_KEY_CHECKING"); ok {
 		if b, err := strconv.ParseBool(x); err == nil && b {

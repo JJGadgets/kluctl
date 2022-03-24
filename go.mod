@@ -3,6 +3,7 @@ module github.com/kluctl/kluctl
 go 1.17
 
 require (
+	github.com/Azure/go-ntlmssp v0.0.0-20211209120228-48547f28849e
 	github.com/alecthomas/kong v0.4.1
 	github.com/aws/aws-sdk-go v1.43.10
 	github.com/bitnami-labs/sealed-secrets v0.17.3
@@ -19,6 +20,7 @@ require (
 	github.com/hashicorp/go-version v1.4.0
 	github.com/hexops/gotextdiff v1.0.3
 	github.com/jinzhu/copier v0.3.5
+	github.com/kevinburke/ssh_config v1.1.0
 	github.com/mattn/go-isatty v0.0.14
 	github.com/mitchellh/go-ps v1.0.0
 	github.com/ohler55/ojg v1.12.14
@@ -28,9 +30,10 @@ require (
 	github.com/stretchr/testify v1.7.0
 	github.com/whilp/git-urls v1.0.0
 	github.com/xanzy/ssh-agent v0.3.1
-	golang.org/x/crypto v0.0.0-20220214200702-86341886e292
+	golang.org/x/crypto v0.0.0-20220331220935-ae2d96664a29
 	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c
-	golang.org/x/sys v0.0.0-20220227234510-4e6760a101f9
+	golang.org/x/sys v0.0.0-20220330033206-e17cdc41300f
+	golang.org/x/term v0.0.0-20210927222741-03fcf44c2211
 	gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b
 	k8s.io/api v0.23.4
 	k8s.io/apimachinery v0.23.4
@@ -89,7 +92,6 @@ require (
 	github.com/jmespath/go-jmespath v0.4.0 // indirect
 	github.com/josharian/intern v1.0.0 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
-	github.com/kevinburke/ssh_config v1.1.0 // indirect
 	github.com/klauspost/compress v1.13.6 // indirect
 	github.com/leodido/go-urn v1.2.1 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect
@@ -110,9 +112,8 @@ require (
 	github.com/vmihailenco/msgpack v4.0.4+incompatible // indirect
 	github.com/xlab/treeprint v1.1.0 // indirect
 	go.starlark.net v0.0.0-20220302181546-5411bad688d1 // indirect
-	golang.org/x/net v0.0.0-20220225172249-27dd8689420f // indirect
+	golang.org/x/net v0.0.0-20220325170049-de3da57026de // indirect
 	golang.org/x/oauth2 v0.0.0-20220223155221-ee480838109b // indirect
-	golang.org/x/term v0.0.0-20210927222741-03fcf44c2211 // indirect
 	golang.org/x/text v0.3.7 // indirect
 	golang.org/x/time v0.0.0-20220224211638-0e9765cccd65 // indirect
 	golang.org/x/xerrors v0.0.0-20200804184101-5ec99f83aff1 // indirect

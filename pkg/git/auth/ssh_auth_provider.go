@@ -40,6 +40,7 @@ func (a *sshDefaultIdentityAndAgent) Name() string {
 func (a *sshDefaultIdentityAndAgent) ClientConfig() (*ssh.ClientConfig, error) {
 	cc := &ssh.ClientConfig{
 		User: a.user,
+		BannerCallback: ssh.BannerDisplayStderr(),
 		Auth: []ssh.AuthMethod{ssh.PublicKeysCallback(a.Signers)},
 	}
 	cc.HostKeyCallback = verifyHost
@@ -113,9 +114,9 @@ func (a *GitSshAuthProvider) BuildAuth(gitUrl git_url.GitUrl) transport.AuthMeth
 	}
 
 	// Try agent identities first. They might be unencrypted already, making passphrase prompts unnecessary
-	auth.addAgentIdentities(gitUrl)
+	//auth.addAgentIdentities(gitUrl)
 	auth.addDefaultIdentity(gitUrl)
-	auth.addConfigIdentities(gitUrl)
+	//auth.addConfigIdentities(gitUrl)
 
 	return auth
 }
