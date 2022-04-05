@@ -13,6 +13,7 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+	"sync"
 )
 import "github.com/gofrs/flock"
 
@@ -68,7 +69,11 @@ func (g *MirroredGitRepo) Unlock() error {
 	return nil
 }
 
+var globalLock sync.Mutex
+
 func (g *MirroredGitRepo) WithLock(cb func() error) error {
+	globalLock.Lock()
+	defer globalLock.Unlock()
 	err := g.Lock()
 	if err != nil {
 		return err

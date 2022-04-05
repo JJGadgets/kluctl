@@ -115,8 +115,8 @@ func (a *GitSshAuthProvider) BuildAuth(gitUrl git_url.GitUrl) transport.AuthMeth
 
 	// Try agent identities first. They might be unencrypted already, making passphrase prompts unnecessary
 	//auth.addAgentIdentities(gitUrl)
-	auth.addDefaultIdentity(gitUrl)
-	//auth.addConfigIdentities(gitUrl)
+	//auth.addDefaultIdentity(gitUrl)
+	auth.addConfigIdentities(gitUrl)
 
 	return auth
 }
